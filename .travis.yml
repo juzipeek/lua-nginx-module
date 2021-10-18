@@ -2,7 +2,7 @@ dist: bionic
 
 branches:
   only:
-    - "upstream-keepalive"
+    - "feat/upstream-keepalive"
 
 os: linux
 
@@ -59,7 +59,7 @@ services:
  - mysql
 
 before_install:
-  - sudo apt  update
+  - sudo apt update
   - sudo apt install --only-upgrade ca-certificates
   - '! grep -n -P ''(?<=.{80}).+'' --color `find src -name ''*.c''` `find . -name ''*.h''` || (echo "ERROR: Found C source lines exceeding 80 columns." > /dev/stderr; exit 1)'
   - '! grep -n -P ''\t+'' --color `find src -name ''*.c''` `find . -name ''*.h''` || (echo "ERROR: Cannot use tabs." > /dev/stderr; exit 1)'
